@@ -1,0 +1,193 @@
+body {
+    margin: 0;
+    background-color: #F3F6F1;
+    font-family: "Didact Gothic", sans-serif;
+    color: #2F3E3A;
+}
+
+#container {
+    width: 1200px;
+    min-width: 900px;
+    margin: auto;
+}
+
+header {
+    text-align: center;
+}
+
+header h1 {
+    margin: 10px 0 0;
+    font-family: "Lacquer";
+    font-size: 46px;
+    color: #355E4A;
+}
+
+header h2 {
+    margin: 0 0 10px;
+    font-family: "Didact Gothic";
+    font-size: 22px;
+    font-weight: 400;
+}
+
+#banner {
+    width: 1100px;
+    height: 250px;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+#banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(80%);
+}
+
+.banner-text {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+}
+
+.banner-text h3 {
+    margin: 0;
+    font-family: "Lacquer", cursive;
+    font-size: 60px;
+    color: #ffffff;
+}
+
+.flower {
+    position: absolute;
+    display: inline-block;
+    z-index: 2;
+    color: #dbe8d5;
+    font-size: 45px;
+    cursor: pointer;
+    animation: softGrow 3s ease-in-out infinite;
+    transition: rotate 1.5s;
+}
+
+.flower:hover {
+    rotate: 360deg;
+}
+
+.flower1 {
+    top: 25px;
+    left: 70px;
+}
+
+.flower2 {
+    top: 165px;
+    right: 110px;
+    font-size: 35px;
+}
+
+.flower3 {
+    top: 20px;
+    right: 55px;
+    font-size: 55px;
+}
+
+main {
+    width: 1100px;
+    margin: 20px auto;
+    display: flex;
+    gap: 15px;
+}
+
+section {
+    flex: 1;
+    min-height: 320px;
+    padding: 15px;
+    border-radius: 18px;
+    background-color: #DDEBE3;
+}
+
+section:nth-child(2) {
+    background-color: #DCE9EE;
+}
+
+section:nth-child(3) {
+    background-color: #D6E4D7;
+}
+
+section:nth-child(4) {
+    background-color: #E2E8DE;
+}
+
+.section-image {
+    width: 100%;
+    height: 115px;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+}
+
+section h2 {
+    margin: 10px 0 5px;
+    font-family: "Lacquer"; 
+    font-size: 34px;
+    color: #355E4A;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+a {
+    display: block;
+    padding: 5px 0;
+    color: #2F3E3A;
+    text-decoration: none;
+    font-size: 24px;
+    transition: transform 0.2s, color 0.2s;
+}
+
+a:hover {
+    transform: translateX(5px);
+    color: #355E4A;
+}
+
+footer {
+    width: 1100px;
+    margin: auto;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border-radius: 18px 18px 0 0;
+    background-color: #6F8F86;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer p,
+footer a {
+    margin: 0;
+    font-size: 22px;
+    color: white;
+}
+
+@keyframes softGrow {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.10);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
