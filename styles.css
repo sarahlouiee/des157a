@@ -85,12 +85,35 @@ header h2 {
     top: 165px;
     right: 110px;
     font-size: 35px;
+    animation-delay: 0.5s;
 }
 
 .flower3 {
     top: 20px;
     right: 55px;
     font-size: 55px;
+    animation-delay: 1s;
+}
+
+.flower4 {
+    bottom: 40px;
+    left: 100px;
+    font-size: 75px;
+    animation-delay: 1.5s;
+}
+
+.flower5 {
+    top: 70px;
+    left: 290px;
+    font-size: 45px;
+    animation-delay: 2s;
+}
+
+.flower6 {
+    bottom: 70px;
+    right: 270px;
+    font-size: 65px;
+    animation-delay: 2.5s;
 }
 
 main {
@@ -184,7 +207,7 @@ footer a {
     }
 
     50% {
-        transform: scale(1.10);
+        transform: scale(1.4);
     }
 
     100% {
