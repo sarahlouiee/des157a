@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Experiment 1</h1>
+    <h2>To see the code, open the console!</h2>
+    <script>
+        //my program will capitalize the first letter of each word in a string.
+        var string = 'hello, my name is sarah';
+        var words = string.split(' ');
+        //^this splits the string every time it sees a space
+        var result = '';
+
+        //loop:
+        for (var i = 0; i < words.length; i ++) {
+            var word = words[i];
+            //^this gets a #i word from the list of words
+            var capitalizedWord = word[0].toUpperCase() + word.slice(1);
+            //^takes the first letter of the word (word0) and capitalizes it, then adds the rest of the words (sliced at 1)
+            result = result + capitalizedWord + ' ';
+            //Adding the capitalized word to result, with a space
+        }
+
+        console.log(result);
+    </script>
+</body>
+</html>
