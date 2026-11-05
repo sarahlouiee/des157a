@@ -1,0 +1,134 @@
+body {
+    margin: 0;
+    background: #0d1020;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#container {
+    position: relative;
+    width: 1200px;
+    height: 750px;
+    margin: auto;
+    overflow: hidden;
+    background: #0d1020;
+}
+
+#artwork {
+    position: absolute;
+    top: 140px;
+    left: 370px;
+    width: 450px;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+#artwork.show {
+    opacity: 1;
+}
+
+#star1 {
+    position: absolute;
+    top: 170px;
+    left: 420px;
+    color: #f5f5f5;
+    z-index: 2;
+    animation: pulse 2s infinite;
+}
+
+.star {
+    position: absolute;
+    font-size: 90px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+
+.purple-star {
+    color: #8a4bd6;
+    opacity: 0.9;
+}
+
+.star-fill {
+    position: absolute;
+    font-size: 75px;
+    line-height: 1;
+}
+
+.star-a {
+    top: 60px;
+    left: 950px;
+}
+
+.star-b {
+    top: 500px;
+    left: 180px;
+}
+
+.star-c {
+    top: 580px;
+    left: 900px;
+}
+
+#star1:hover {
+    transform: scale(1.1);
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.08);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+#overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.75);
+}
+
+#modal {
+    width: 500px;
+    margin: 60px auto;
+    padding: 20px;
+    background: white;
+    text-align: center;
+}
+
+#modal img {
+    width: 100%;
+    height: auto;
+}
+
+#modal h2 {
+    margin-top: 0;
+}
+
+#modal p {
+    line-height: 1.4em;
+}
+
+#close {
+    margin-top: 10px;
+    padding: 10px 16px;
+    border: none;
+    background: #0d1020;
+    color: white;
+    cursor: pointer;
+}
