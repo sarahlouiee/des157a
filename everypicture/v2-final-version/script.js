@@ -2,13 +2,13 @@
     "use strict";
     console.log("reading js");
 
-    // Artwork information. Replace the titles and descriptions with your own.
+ 
     const photos = [
-        { image: "artwork-1.jpg", title: "Artwork 1", description: "A portrait from my AP Art portfolio." },
-        { image: "artwork-2.jpg", title: "Artwork 2", description: "A portrait from my AP Art portfolio." },
-        { image: "artwork-3.jpg", title: "Artwork 3", description: "A portrait from my AP Art portfolio." },
-        { image: "artwork-4.jpg", title: "Artwork 4", description: "A portrait from my AP Art portfolio." },
-        { image: "artwork-5.jpg", title: "Artwork 5", description: "A portrait from my AP Art portfolio." }
+        { image: "artwork-1.jpg", title: "Artwork 1", description: "A portrait of my younger brother from my AP Art portfolio. I was exploring how to connect the Chinese and American flags through stars and stripes." },
+        { image: "artwork-2.jpg", title: "Artwork 2", description: "A portrait of my younger self from my AP Art portfolio. Experimented with spray paint, gouache, and charcoal." },
+        { image: "artwork-3.jpg", title: "Artwork 3", description: "A portrait of an Asian immigrant from my AP Art porfolio. Experimented with spray paint, charcoal, and gouache." },
+        { image: "artwork-4.jpg", title: "Artwork 4", description: "A portrait of my grandma from my AP Art portfolio. Placed the flag stars on her face, following the contours." },
+        { image: "artwork-5.jpg", title: "Artwork 5", description: "A portrait of my younger self from my AP Art portfolio. Used Chinese stars as the American flag stars. Experimented with spray paint and oil paint." }
     ];
 
     const stars = document.querySelectorAll(".star");
@@ -20,9 +20,15 @@
     const modalDescription = document.querySelector("#art-description");
     const closeButton = document.querySelector("#close");
     let lastStar = null;
+    let activeArtwork = -1;
+    let revealTimer;
+    let fadeTimer;
 
-    // Connect the centers of the white stars for each artwork.
-    // The SVG and the mockup use the same 1440 x 1024 coordinates.
+
+    const drawTime = 2200;
+    const holdTime = 1500;
+
+
     for (let i = 0; i < photos.length; i++) {
         const group = document.querySelectorAll(`.star[data-art="${i}"]`);
         let points = "";
@@ -36,35 +42,49 @@
         lines[i].setAttribute("d", points);
     }
 
-    // Show only the artwork associated with the hovered star.
+   
     function showArtwork(number) {
-        for (let i = 0; i < artworks.length; i++) {
-            if (i === number) {
-                artworks[i].classList.add("visible");
-            } else {
-                artworks[i].classList.remove("visible");
+
+        if (activeArtwork === number) {
+            return;
+        }
+
+        hideArtwork();
+        activeArtwork = number;
+        lines[number].classList.add("drawing");
+
+        for (let i = 0; i < stars.length; i++) {
+            if (Number(stars[i].dataset.art) === number) {
+                stars[i].classList.add("lit");
             }
         }
-        for (let i = 0; i < lines.length; i++) {
-            lines[i].classList.toggle("visible", i === number);
-        }
-        for (let i = 0; i < stars.length; i++) {
-            stars[i].classList.toggle("lit", Number(stars[i].dataset.art) === number);
-        }
+
+        revealTimer = setTimeout(function () {
+            artworks[number].classList.add("visible");
+
+
+            fadeTimer = setTimeout(function () {
+                lines[number].classList.add("fading");
+            }, holdTime);
+        }, drawTime);
     }
 
-    // Hide the image after leaving an interactive star.
+
     function hideArtwork() {
+        clearTimeout(revealTimer);
+        clearTimeout(fadeTimer);
+        activeArtwork = -1;
+
         for (let i = 0; i < artworks.length; i++) {
             artworks[i].classList.remove("visible");
-            lines[i].classList.remove("visible");
+            lines[i].classList.remove("drawing", "fading");
         }
         for (let i = 0; i < stars.length; i++) {
             stars[i].classList.remove("lit");
         }
     }
 
-    // Show the selected photograph and its description in the overlay.
+
     function openOverlay(number) {
         modalImage.src = `images/${photos[number].image}`;
         modalImage.alt = photos[number].title;
@@ -75,7 +95,6 @@
         closeButton.focus();
     }
 
-    // Close the overlay and return keyboard focus to the selected star.
     function closeOverlay() {
         overlay.classList.add("hidden");
         overlay.setAttribute("aria-hidden", "true");
@@ -84,7 +103,6 @@
         }
     }
 
-    // Connect all white stars to a hover, keyboard-focus and click event.
     for (let i = 0; i < stars.length; i++) {
         const number = Number(stars[i].dataset.art);
         stars[i].addEventListener("mouseenter", function () {

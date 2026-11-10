@@ -31,7 +31,6 @@ header p {
     font-family: "Bpmf Huninn", sans-serif;
     font-size: 16px;
 }
-
 .sky {
     position: relative;
     width: min(100vw, 140.625vh);
@@ -45,6 +44,30 @@ header p {
 .artwork { position: absolute; margin: 0; opacity: 0; transition: opacity 0.65s ease; }
 .artwork.visible { opacity: 1; }
 .artwork img { width: 100%; height: 100%; display: block; object-fit: fill; }
+
+
+.sky-heading {
+    position: absolute;
+    z-index: 5;
+    left: 3.2%;
+    top: 2.4%;
+    max-width: 45%;
+    pointer-events: none;
+    text-shadow: 0 2px 10px #000;
+}
+.sky-heading h1 {
+    margin: 0 0 8px;
+    font-size: clamp(18px, 2.1vw, 30px);
+    font-weight: 400;
+    letter-spacing: 0.07em;
+}
+.sky-heading p {
+    margin: 0;
+    color: #d2c9d9;
+    font-size: clamp(10px, 1vw, 14px);
+    line-height: 1.5;
+}
+
 
 .artwork-one   { left: 13.54%; top: 6.93%; width: 30.90%; height: 46.48%; }
 .artwork-two   { left: 47.57%; top: 10.35%; width: 23.75%; height: 41.89%; }
@@ -75,12 +98,15 @@ header p {
     stroke-dasharray: 100;
     stroke-dashoffset: 100;
     opacity: 0;
-    transition: stroke-dashoffset 0.7s ease, opacity 0.25s ease;
+    transition: stroke-dashoffset 2.2s linear, opacity 0.5s ease;
     filter: drop-shadow(0 0 5px #fff);
 }
-.constellation-lines path.visible {
+.constellation-lines path.drawing {
     stroke-dashoffset: 0;
     opacity: 1;
+}
+.constellation-lines path.fading {
+    opacity: 0;
 }
 .star-buttons { z-index: 4; }
 .star {
@@ -102,7 +128,6 @@ header p {
 .star:hover::after, .star:focus-visible::after, .star.lit::after { opacity: 1; }
 .star:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 
-/* Modal overlay is shown and hidden by JavaScript. */
 .overlay {
     position: fixed;
     inset: 0;
@@ -133,6 +158,9 @@ header p {
 #close:hover, #close:focus-visible { color: #e6d5aa; }
 @media (max-width: 650px) {
     .sky { width: 100vw; }
+    .sky-heading { max-width: 65%; }
+    .sky-heading h1 { margin-bottom: 4px; }
+    .sky-heading p { font-size: 9px; }
     .modal { flex-direction: column; text-align: center; }
     .modal img { width: auto; max-width: 100%; max-height: 55vh; }
     .modal-text { flex: initial; }
