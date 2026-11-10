@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Among the Stars | Every Picture</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bpmf+Huninn&family=Lavishly+Yours&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main>
+        <h1 class="screen-reader-only">Among the Stars</h1>
+        <p class="screen-reader-only">Hover over a white star to reveal a portrait. Click a white star to open details.</p>
+        <section class="sky" aria-label="Interactive constellation of portraits">
+            <!-- The images use the exact layout of the desktop artwork mockup. -->
+            <div class="artworks">
+            <figure class="artwork artwork-one" data-art="0"><img src="images/artwork-1.jpg" alt="Mixed-media portrait of a child with stars" width="1120" height="1200"></figure>
+            <figure class="artwork artwork-two" data-art="1"><img src="images/artwork-2.jpg" alt="Charcoal portrait of a girl with colorful stars" width="941" height="1200"></figure>
+            <figure class="artwork artwork-three" data-art="2"><img src="images/artwork-3.jpg" alt="Portrait with geometric star shapes across the face" width="943" height="1200"></figure>
+            <figure class="artwork artwork-four" data-art="3"><img src="images/artwork-4.jpg" alt="Black and white portrait of a woman" width="873" height="1200"></figure>
+            <figure class="artwork artwork-five" data-art="4"><img src="images/artwork-5.jpg" alt="Girl in red alongside a pattern of stars" width="1200" height="680"></figure>
+            </div>
+            <!-- Transparent star shapes extracted from the original black mockup. -->
+            <div class="star-picture" aria-hidden="true"></div>
+            <!-- Lines are drawn between stars using the same 1440 x 1024 coordinate system. -->
+            <svg class="constellation-lines" viewBox="0 0 1440 1024" preserveAspectRatio="none" aria-hidden="true">
+                <path data-art="0" pathLength="100"></path>
+                <path data-art="1" pathLength="100"></path>
+                <path data-art="2" pathLength="100"></path>
+                <path data-art="3" pathLength="100"></path>
+                <path data-art="4" pathLength="100"></path>
+            </svg>
+            <div class="star-buttons">
+            <button class="star" type="button" data-art="0" aria-label="Reveal artwork 1" style="left:14.0972%;top:8.6914%;width:13.8194%;height:19.8242%;"></button>
+            <button class="star" type="button" data-art="0" aria-label="Reveal artwork 1" style="left:40.9722%;top:9.3750%;width:4.0972%;height:5.5664%;"></button>
+            <button class="star" type="button" data-art="1" aria-label="Reveal artwork 2" style="left:54.9306%;top:18.7500%;width:10.3472%;height:14.8438%;"></button>
+            <button class="star" type="button" data-art="0" aria-label="Reveal artwork 1" style="left:29.2361%;top:20.0195%;width:14.0278%;height:19.6289%;"></button>
+            <button class="star" type="button" data-art="2" aria-label="Reveal artwork 3" style="left:78.4028%;top:23.3398%;width:8.8194%;height:12.5000%;"></button>
+            <button class="star" type="button" data-art="0" aria-label="Reveal artwork 1" style="left:18.4028%;top:27.6367%;width:4.0972%;height:5.5664%;"></button>
+            <button class="star" type="button" data-art="2" aria-label="Reveal artwork 3" style="left:90.3472%;top:29.5898%;width:3.2639%;height:4.3945%;"></button>
+            <button class="star" type="button" data-art="0" aria-label="Reveal artwork 1" style="left:14.5139%;top:33.2031%;width:4.0972%;height:5.6641%;"></button>
+            <button class="star" type="button" data-art="1" aria-label="Reveal artwork 2" style="left:64.6528%;top:34.8633%;width:3.3333%;height:4.5898%;"></button>
+            <button class="star" type="button" data-art="1" aria-label="Reveal artwork 2" style="left:51.5278%;top:36.2305%;width:3.2639%;height:4.5898%;"></button>
+            <button class="star" type="button" data-art="2" aria-label="Reveal artwork 3" style="left:89.3750%;top:36.7188%;width:2.6389%;height:3.7109%;"></button>
+            <button class="star" type="button" data-art="1" aria-label="Reveal artwork 2" style="left:60.2778%;top:39.7461%;width:3.2639%;height:4.5898%;"></button>
+            <button class="star" type="button" data-art="2" aria-label="Reveal artwork 3" style="left:82.5000%;top:39.8438%;width:3.4028%;height:4.8828%;"></button>
+            <button class="star" type="button" data-art="2" aria-label="Reveal artwork 3" style="left:86.2153%;top:40.0879%;width:2.6389%;height:3.8086%;"></button>
+            <button class="star" type="button" data-art="1" aria-label="Reveal artwork 2" style="left:55.3472%;top:40.3320%;width:3.3333%;height:4.5898%;"></button>
+            <button class="star" type="button" data-art="0" aria-label="Reveal artwork 1" style="left:17.7083%;top:49.5117%;width:4.0278%;height:5.5664%;"></button>
+            <button class="star" type="button" data-art="4" aria-label="Reveal artwork 5" style="left:54.5833%;top:57.6172%;width:5.9028%;height:8.6914%;"></button>
+            <button class="star" type="button" data-art="4" aria-label="Reveal artwork 5" style="left:49.4792%;top:57.6660%;width:2.6389%;height:3.9062%;"></button>
+            <button class="star" type="button" data-art="4" aria-label="Reveal artwork 5" style="left:64.0972%;top:58.2031%;width:4.9306%;height:6.9336%;"></button>
+            <button class="star" type="button" data-art="3" aria-label="Reveal artwork 4" style="left:35.0000%;top:64.6484%;width:5.0000%;height:7.3242%;"></button>
+            <button class="star" type="button" data-art="4" aria-label="Reveal artwork 5" style="left:49.1667%;top:68.1641%;width:6.0417%;height:8.5938%;"></button>
+            <button class="star" type="button" data-art="4" aria-label="Reveal artwork 5" style="left:61.1806%;top:68.7500%;width:6.1111%;height:8.3984%;"></button>
+            <button class="star" type="button" data-art="3" aria-label="Reveal artwork 4" style="left:38.5069%;top:70.6543%;width:2.6389%;height:3.7109%;"></button>
+            <button class="star" type="button" data-art="3" aria-label="Reveal artwork 4" style="left:33.2639%;top:71.5820%;width:2.6389%;height:3.7109%;"></button>
+            </div>
+        </section>
+        <!-- One modal is reused for all five artworks. -->
+        <section id="overlay" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="art-title" aria-hidden="true">
+            <div class="modal">
+                <button type="button" id="close" aria-label="Close artwork details">&times;</button>
+                <img id="modal-image" src="images/artwork-1.jpg" alt="">
+                <div class="modal-text">
+                    <h2 id="art-title">Artwork 1</h2>
+                    <p id="art-description">A portrait from my AP Art portfolio.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
